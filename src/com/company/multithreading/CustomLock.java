@@ -1,6 +1,5 @@
 package com.company.multithreading;
 
-import com.sun.org.apache.xerces.internal.util.SynchronizedSymbolTable;
 
 /**
  * Date: 9/26/20

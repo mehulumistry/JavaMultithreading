@@ -91,14 +91,14 @@ interface CustomHashCode {
 //    }
 //}
 
-class Entry<K extends CustomHashCode, V> {
+class EntryC<K extends CustomHashCode, V> {
 
     private K key;
     private V value;
 
-    Entry(){}
+    EntryC(){}
 
-    Entry(K k, V v) {
+    EntryC(K k, V v) {
         this.key = k;
         this.value = v;
     }
@@ -130,7 +130,7 @@ class Entry<K extends CustomHashCode, V> {
     }
 }
 
-class CustomHashMap<K extends CustomHashCode,V> extends Entry<K,V> {
+class CustomHashMap<K extends CustomHashCode,V> extends EntryC<K,V> {
 
     private int size = 0;
 
@@ -139,13 +139,13 @@ class CustomHashMap<K extends CustomHashCode,V> extends Entry<K,V> {
     private Object[] table ;
 
     CustomHashMap(int capacity) {
-        new Entry<K,V>();
+        new EntryC<K,V>();
         table = new Object[capacity];
         size = capacity;
     }
 
     public void put(K key, V value) throws Exception {
-        Entry e = new Entry<>(key, value);
+        EntryC e = new EntryC<>(key, value);
         int hashCode = e.getKey().getHashCode();
         if(hashCode < size) {
             table[hashCode] = e.getValue();
@@ -167,7 +167,7 @@ class CustomHashMap<K extends CustomHashCode,V> extends Entry<K,V> {
 
 }
 
-class WeakCustomHashMap<K extends CustomHashCode,V> extends Entry<K,V>  {
+class WeakCustomHashMap<K extends CustomHashCode,V> extends EntryC<K,V>  {
 
     CustomHashMap<K,V> chm = new CustomHashMap<>(10);
 

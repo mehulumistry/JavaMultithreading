@@ -7,6 +7,7 @@ import java.util.ArrayList;
  * Time: 3:51 PM
  */
 
+// https://www.youtube.com/watch?v=Z5TRputhzHs&list=RDCMUCiz26UeGvcTy4_M3Zhgk7FQ&index=19
 /* Want to design a class
  * which is lazily evaluated -> evaluated when referenced and also thread safe
  * 1) only evaluated when referred
@@ -15,8 +16,10 @@ import java.util.ArrayList;
 
 /*
 Lazy loading is just a fancy name given to the process of initializing a class when it’s actually needed.
-In simple words, Lazy loading is a software design pattern where the initialization of an object occurs only when it is actually needed and not before to preserve simplicity of usage and improve performance.
-Lazy loading is essential when the cost of object creation is very high and the use of the object is very rare. So this is the scenario where it’s worth implementing lazy loading.The fundamental idea of lazy loading is to load object/data when needed.
+In simple words, Lazy loading is a software design pattern where the initialization of an object
+occurs only when it is actually needed and not before to preserve simplicity of usage and improve performance.
+Lazy loading is essential when the cost of object creation is very high and the use of the object
+is very rare. So this is the scenario where it’s worth implementing lazy loading.The fundamental idea of lazy loading is to load object/data when needed.
 */
 
 /*
@@ -42,7 +45,8 @@ Lazy initialization has two objectives:
 
 /*
 *
-* When a concurrent programming is not correctly written, the errors tend to fall in to one of three categories:
+* When a concurrent programming is not correctly written,
+* the errors tend to fall in to one of three categories:
 *   1) atomicity
 *      -- When you want to access something in shared state in any way obtain a mutual exclusion lock on it.
 *       Eg. synchronized and intrinsic locks are the example
@@ -52,7 +56,8 @@ Lazy initialization has two objectives:
 *      Eg. volatile
 *   3) ordering
 *       -- There will be an ordering issues bcs JVM/compiler will try to optimize and change the order of the execution
-*       This might sound perfect for the sequential program but for the multithreaded it will create a problem. Thread ordering is unpredictable
+*       This might sound perfect for the sequential program but for the multithreaded
+*       it will create a problem. Thread ordering is unpredictable
 *
 *   Volatile -> provides visibility and ordering
 *   Synchronized -> provides all three
@@ -137,7 +142,8 @@ class LazyClass<T> {
         return lazyVal != null;
     }
 
-    // Can synchronize the whole function but that will be a waste because if(lazyVal == null) (1) statement is multithreading friendly
+    // Can synchronize the whole function but that will be a waste because
+    // if(lazyVal == null) (1) statement is multithreading friendly
     // So sync is inside and double checking the instance
     public T getValue() throws InterruptedException {
         if(lazyVal == null) {

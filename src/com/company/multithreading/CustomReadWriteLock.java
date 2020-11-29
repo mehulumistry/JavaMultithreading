@@ -7,6 +7,18 @@ import java.util.concurrent.atomic.AtomicInteger;
  * Time: 10:04 PM
  */
 
+/* Difference between ReadWriteLock and Reentrant Lock
+*
+* ReadWriteLock has two types of lock Reader and Writer Lock
+* Scheduler allows reader threads to read the state even if the
+* writer thread is waiting, once all reader threads reads the shared state
+* writer thread writes to the state.
+* Multiple threads can acquire the read lock and can access it.
+* https://www.youtube.com/watch?v=7VqWkc9o7RM&t=414s
+* */
+
+// https://www.javaspecialists.eu/archive/Issue215-StampedLock-Idioms.html
+
 // https://stackoverflow.com/questions/49372668/implementing-a-resource-read-write-lock-in-java
 // implement ReadWriteLock
 public class CustomReadWriteLock {

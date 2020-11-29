@@ -1,6 +1,5 @@
 package com.company.multithreading;
 
-import com.sun.tools.jdi.LockObject;
 
 import java.util.concurrent.locks.AbstractQueuedSynchronizer;
 import java.util.concurrent.locks.LockSupport;
