@@ -192,7 +192,10 @@ class TestThreadSafeClass {
     }
 }
 
+/* We can do EarlyInitialization, Initialization on Demand, Enum Singleton */
 
+// static method is class level and it initializes when it is referred.
 
-
+// static block only loads once in the memory when call initialization is done for the first time.
+// final will make it constant at compile time and will make it immutable
 

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.function.Supplier;
 
 /**
  * Date: 11/29/20
@@ -12,7 +13,7 @@ import java.util.Map;
 public class ReferenceAllocationInMultiThreading {
 
     private Map<Integer, String> idToNameMap; // ref is allocated to heap, because it is class member
-    private static long numberOfInstances = 0; // class member
+    private static long numberOfInstances = 0; // class member, static fields and methods are not thread safe
 
     ReferenceAllocationInMultiThreading() {
        this.idToNameMap = new HashMap<>();
@@ -26,6 +27,10 @@ public class ReferenceAllocationInMultiThreading {
         allNames.addAll(idToNameMap.values());
 
         return allNames;
+   }
+
+   Supplier<Integer> incrementer(final int start) {
+        return () -> start + 2; // cannot do start++
    }
 
 
