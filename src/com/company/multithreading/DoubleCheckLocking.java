@@ -23,7 +23,8 @@ public class DoubleCheckLocking {
 
     }
 
-    ExpensiveResource resource;
+    // Here volatile will make sure assigning Object to an reference is volatile(atomic and preserve order)
+    volatile ExpensiveResource resource;
 
     ExpensiveResource getExpensiveResourceFail1() {
 
@@ -95,7 +96,7 @@ public class DoubleCheckLocking {
                     // Thread 2/3.. will try to access the variable resource and which will be not null.
                     // but resource may or may not be fully created, which will result into false sharing.
                     // so need to make resource volatile.
-                    // volatile will make sure that all the changes will percolate to down memory.
+                    // volatile will make sure no reordering happens while creating resource and hence will make sure the object is created fully.
                     resource = new ExpensiveResource();
                 }
             }
@@ -190,4 +191,8 @@ class TestThreadSafeClass {
 
     }
 }
+
+
+
+
 

@@ -83,3 +83,9 @@ class CustomLatchTest {
 
     }
 }
+
+// CountDownLatch
+// If we want to wait for all the task/threads upto some point of execution use cyclic barrier
+
+// Ref: https://www.baeldung.com/java-countdown-latch
+// Ref: https://www.youtube.com/watch?v=J3QZ5gfCtAg&list=RDCMUCiz26UeGvcTy4_M3Zhgk7FQ&index=9

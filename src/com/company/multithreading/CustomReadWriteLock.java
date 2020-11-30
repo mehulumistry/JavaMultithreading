@@ -20,7 +20,14 @@ import java.util.concurrent.atomic.AtomicInteger;
 // https://www.javaspecialists.eu/archive/Issue215-StampedLock-Idioms.html
 
 // https://stackoverflow.com/questions/49372668/implementing-a-resource-read-write-lock-in-java
-// implement ReadWriteLock
+//
+/*
+*
+* Multiple Threads can acquire Read lock as long as no other thread is holding write lock
+* Only preferred when reads are higher then writes.
+* */
+
+
 public class CustomReadWriteLock {
 
     private volatile boolean WRITE_FLAG = false;

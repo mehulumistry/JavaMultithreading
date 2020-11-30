@@ -6,6 +6,17 @@ import java.util.concurrent.locks.ReentrantLock;
  * Date: 10/15/20
  * Time: 2:45 PM
  */
+
+/*
+* To prevent race conditions from occurring you must make sure that
+* the critical section is executed as an atomic instruction.
+* That means that once a single thread is executing it,
+* no other threads can execute it until the first thread has left the critical section.
+*
+* Deadlock -> T1 has R2 and needs R1, T2 has R1 and needs R2 -> use join, less locks, lock-free, tryLock
+* Race Condition -> counter updating -> solve with Atomic
+*
+* */
 public class Threads101 {
 
 
